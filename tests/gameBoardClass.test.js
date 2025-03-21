@@ -41,4 +41,26 @@ describe("GameBoard", () => {
 			expect(gameBoard.board[4][i]).toBe("patrol");
 		}
 	});
+
+	it("Should check if a missed attack is recorded correctly", () => {
+		gameBoard.receiveAttack(5, 4);
+		expect(gameBoard.board[5][4]).toBe("miss");
+	});
+
+	it("Should check if an attack hit the correct ship", () => {
+		gameBoard.receiveAttack(0, 1);
+		expect(gameBoard.board[0][1]).toBe("carrier hit");
+
+		gameBoard.receiveAttack(1, 1);
+		expect(gameBoard.board[1][1]).toBe("battleship hit");
+
+		gameBoard.receiveAttack(2, 1);
+		expect(gameBoard.board[2][1]).toBe("destroyer hit");
+
+		gameBoard.receiveAttack(3, 1);
+		expect(gameBoard.board[3][1]).toBe("submarine hit");
+
+		gameBoard.receiveAttack(4, 1);
+		expect(gameBoard.board[4][1]).toBe("patrol hit");
+	});
 });
