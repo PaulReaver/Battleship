@@ -45,7 +45,6 @@ class GameBoard {
 			case "patrol":
 				this.board[x][y] = "patrol hit";
 				break;
-
 			default:
 				this.board[x][y] = "miss";
 				break;
