@@ -2,7 +2,7 @@ import { Ship } from "./shipClass.js";
 
 class GameBoard {
 	constructor() {
-		this.board = new Array(10).fill().map(() => new Array(10).fill(""));
+		this.board = new Array(10).fill().map(() => new Array(10).fill(null));
 		this.carrier = new Ship(5);
 		this.battleship = new Ship(4);
 		this.destroyer = new Ship(3);
