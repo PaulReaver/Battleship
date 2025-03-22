@@ -8,6 +8,9 @@ class Ship {
 	}
 
 	hit() {
+		if (this.isSunk()) {
+			return;
+		}
 		this.hits += 1;
 		this.isSunk();
 	}
