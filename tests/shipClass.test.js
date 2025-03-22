@@ -2,28 +2,39 @@ import { describe, it, expect } from "bun:test";
 import { Ship } from "../classes/shipClass.js";
 
 describe("Ship", () => {
-	it("Should return the correct number of hits taken", () => {
+	it("Should initialize with correct length and hits", () => {
 		const ship = new Ship(3);
-		ship.hit();
+		expect(ship.length).toBe(3);
+		expect(ship.hits).toBe(0);
+	});
 
+	it("Should increment hits correctly", () => {
+		const ship = new Ship(3);
+
+		ship.hit();
 		expect(ship.hits).toBe(1);
+
+		ship.hit();
+		expect(ship.hits).toBe(2);
 	});
 
-	it("Should return true if the number of hits equals the ship's length", () => {
-		const ship = new Ship(1);
-
-		expect(ship.isSunk()).toBeTruthy;
-	});
-
-	it("Should return false if the number of hits does not equal the ship's length", () => {
+	it("Should return false if not sunk", () => {
 		const ship = new Ship(3);
 
-		expect(ship.isSunk()).toBeFalsy;
+		expect(ship.isSunk()).toBe(false);
 	});
 
-	it("Should return true when the ship is sunk after being hit", () => {
+	it("Should return true when sunk (length 1)", () => {
 		const ship = new Ship(1);
 		ship.hit();
-		expect(ship.isSunk()).toBeTruthy;
+		expect(ship.isSunk()).toBe(true);
+	});
+
+	it("Should return true when sunk (length > 1)", () => {
+		const ship = new Ship(3);
+		ship.hit();
+		ship.hit();
+		ship.hit();
+		expect(ship.isSunk()).toBe(true);
 	});
 });
