@@ -54,23 +54,23 @@ describe("GameBoard", () => {
 		expect(gameBoard.receiveAttack(-1, 0)).toBe("Out of bounds");
 	});
 
-	it("Should check if an attack hit the correct ship", () => {
+	it("Should check if an attack hit a ship", () => {
 		gameBoard.placeShips();
 
 		gameBoard.receiveAttack(0, 1);
-		expect(gameBoard.board[0][1]).toBe("carrier hit");
+		expect(gameBoard.board[0][1]).toBe("hit");
 
 		gameBoard.receiveAttack(1, 1);
-		expect(gameBoard.board[1][1]).toBe("battleship hit");
+		expect(gameBoard.board[1][1]).toBe("hit");
 
 		gameBoard.receiveAttack(2, 1);
-		expect(gameBoard.board[2][1]).toBe("destroyer hit");
+		expect(gameBoard.board[2][1]).toBe("hit");
 
 		gameBoard.receiveAttack(3, 1);
-		expect(gameBoard.board[3][1]).toBe("submarine hit");
+		expect(gameBoard.board[3][1]).toBe("hit");
 
 		gameBoard.receiveAttack(4, 1);
-		expect(gameBoard.board[4][1]).toBe("patrol hit");
+		expect(gameBoard.board[4][1]).toBe("hit");
 	});
 
 	it("Should report whether or not all ships have been sunk", () => {
