@@ -29,25 +29,23 @@ class GameBoard {
 	}
 
 	receiveAttack(x, y) {
-		switch (this.board[x][y]) {
-			case "carrier":
-				this.board[x][y] = "carrier hit";
-				break;
-			case "battleship":
-				this.board[x][y] = "battleship hit";
-				break;
-			case "destroyer":
-				this.board[x][y] = "destroyer hit";
-				break;
-			case "submarine":
-				this.board[x][y] = "submarine hit";
-				break;
-			case "patrol":
-				this.board[x][y] = "patrol hit";
-				break;
-			default:
-				this.board[x][y] = "miss";
-				break;
+		if (this.board[x][y] === "carrier") {
+			this.carrier.hit();
+			this.board[x][y] = "carrier hit";
+		} else if (this.board[x][y] === "battleship") {
+			this.battleship.hit();
+			this.board[x][y] = "battleship hit";
+		} else if (this.board[x][y] === "destroyer") {
+			this.destroyer.hit();
+			this.board[x][y] = "destroyer hit";
+		} else if (this.board[x][y] === "submarine") {
+			this.submarine.hit();
+			this.board[x][y] = "submarine hit";
+		} else if (this.board[x][y] === "patrol") {
+			this.patrol.hit();
+			this.board[x][y] = "patrol hit";
+		} else {
+			this.board[x][y] = "miss";
 		}
 	}
 }
