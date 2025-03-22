@@ -13,6 +13,7 @@ class Ship {
 		if (this.hits === this.length) {
 			return true;
 		}
+		return false;
 	}
 }
 
