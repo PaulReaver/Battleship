@@ -33,21 +33,25 @@ class GameBoard {
 			return "Out of bounds";
 		}
 
+		if (this.board[x][y] === "hit" || this.board[x][y] === "miss") {
+			return "Tile already hit";
+		}
+
 		if (this.board[x][y] === "carrier") {
 			this.carrier.hit();
-			this.board[x][y] = "carrier hit";
+			this.board[x][y] = "hit";
 		} else if (this.board[x][y] === "battleship") {
 			this.battleship.hit();
-			this.board[x][y] = "battleship hit";
+			this.board[x][y] = "hit";
 		} else if (this.board[x][y] === "destroyer") {
 			this.destroyer.hit();
-			this.board[x][y] = "destroyer hit";
+			this.board[x][y] = "hit";
 		} else if (this.board[x][y] === "submarine") {
 			this.submarine.hit();
-			this.board[x][y] = "submarine hit";
+			this.board[x][y] = "hit";
 		} else if (this.board[x][y] === "patrol") {
 			this.patrol.hit();
-			this.board[x][y] = "patrol hit";
+			this.board[x][y] = "hit";
 		} else {
 			this.board[x][y] = "miss";
 		}
