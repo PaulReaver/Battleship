@@ -48,8 +48,15 @@ describe("GameBoard", () => {
 		expect(gameBoard.board[5][4]).toBe("miss");
 	});
 
+	it("Should handle out-of-bounds attack", () => {
+		expect(gameBoard.receiveAttack(10, 10)).toBe("Out of bounds");
+
+		expect(gameBoard.receiveAttack(-1, 0)).toBe("Out of bounds");
+	});
+
 	it("Should check if an attack hit the correct ship", () => {
 		gameBoard.placeShips();
+
 		gameBoard.receiveAttack(0, 1);
 		expect(gameBoard.board[0][1]).toBe("carrier hit");
 
