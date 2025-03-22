@@ -48,6 +48,18 @@ class GameBoard {
 			this.board[x][y] = "miss";
 		}
 	}
+
+	gameOver() {
+		if (
+			this.carrier.isSunk() &&
+			this.battleship.isSunk() &&
+			this.destroyer.isSunk() &&
+			this.submarine.isSunk() &&
+			this.patrol.isSunk()
+		) {
+			return true;
+		}
+	}
 }
 
 export { GameBoard };
