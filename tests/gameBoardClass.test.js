@@ -1,9 +1,9 @@
-import { describe, it, expect, beforeAll } from "bun:test";
+import { describe, it, expect, beforeEach } from "bun:test";
 import { GameBoard } from "../classes/gameBoardClass.js";
 
 describe("GameBoard", () => {
 	let gameBoard;
-	beforeAll(() => {
+	beforeEach(() => {
 		gameBoard = new GameBoard();
 	});
 
@@ -43,11 +43,13 @@ describe("GameBoard", () => {
 	});
 
 	it("Should check if a missed attack is recorded correctly", () => {
+		gameBoard.placeShips();
 		gameBoard.receiveAttack(5, 4);
 		expect(gameBoard.board[5][4]).toBe("miss");
 	});
 
 	it("Should check if an attack hit the correct ship", () => {
+		gameBoard.placeShips();
 		gameBoard.receiveAttack(0, 1);
 		expect(gameBoard.board[0][1]).toBe("carrier hit");
 
@@ -62,5 +64,26 @@ describe("GameBoard", () => {
 
 		gameBoard.receiveAttack(4, 1);
 		expect(gameBoard.board[4][1]).toBe("patrol hit");
+	});
+
+	it("Should report whether or not all ships have been sunk", () => {
+		gameBoard.placeShips();
+		while (!gameBoard.carrier.isSunk()) {
+			gameBoard.carrier.hit();
+		}
+		while (!gameBoard.battleship.isSunk()) {
+			gameBoard.battleship.hit();
+		}
+		while (!gameBoard.destroyer.isSunk()) {
+			gameBoard.destroyer.hit();
+		}
+		while (!gameBoard.submarine.isSunk()) {
+			gameBoard.submarine.hit();
+		}
+		while (!gameBoard.patrol.isSunk()) {
+			gameBoard.patrol.hit();
+		}
+
+		expect(gameBoard.gameOver()).toBeTrue();
 	});
 });
