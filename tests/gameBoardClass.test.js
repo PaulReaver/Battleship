@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from "bun:test";
-import { GameBoard } from "../classes/gameBoardClass.js";
+import { GameBoard } from "../js/gameBoardClass.js";
 
 describe("GameBoard", () => {
 	let gameBoard;

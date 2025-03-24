@@ -1,5 +1,5 @@
 import { describe, it, expect } from "bun:test";
-import { Ship } from "../classes/shipClass.js";
+import { Ship } from "../js/shipClass.js";
 
 describe("Ship", () => {
 	it("Should initialize with correct length and hits", () => {
