@@ -1,4 +1,4 @@
-import { Player } from "./classes/playerClass.js";
+import { Player } from "./js/playerClass.js";
 
 const playerHuman = new Player("Paul");
 const playerComputer = new Player("Computer", true);
