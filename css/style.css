@@ -18,4 +18,12 @@ main {
     &>.ship {
         background-color: lightgreen;
     }
+
+    &>.hit {
+        background-color: red;
+    }
+
+    &>.miss {
+        background-color: lightyellow;
+    }
 }
