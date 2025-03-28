@@ -14,4 +14,8 @@ main {
         background-color: lightblue;
         border: 1px solid gray;
     }
+
+    &>.ship {
+        background-color: lightgreen;
+    }
 }
