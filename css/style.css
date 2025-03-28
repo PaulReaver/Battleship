@@ -1,15 +1,14 @@
 main {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-evenly;
 }
 
 .player-game-board,
 .computer-game-board {
     display: grid;
-    grid-template-columns: repeat(10, 30px);
-    grid-template-rows: repeat(10, 30px);
-    border: 1px solid black;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    border: 2px solid black;
 
     &>div {
         background-color: lightblue;
