@@ -12,6 +12,10 @@ function renderGameBoard(uiBoard, ownBoard) {
 				ownBoard.board[i][j] === "patrol"
 			) {
 				cell.className = "ship";
+			} else if (ownBoard.board[i][j] === "hit") {
+				cell.className = "hit";
+			} else if (ownBoard.board[i][j] === "miss") {
+				cell.className = "miss";
 			}
 		}
 	}
