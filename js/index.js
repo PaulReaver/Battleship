@@ -1,5 +1,5 @@
-import { Player } from "./js/playerClass.js";
-import { renderGameBoard } from "./js/renderGameBoard.js";
+import { Player } from "./playerClass.js";
+import { renderGameBoard } from "./renderGameBoard.js";
 
 const playerHuman = new Player("Paul");
 const playerComputer = new Player("Computer", true);
