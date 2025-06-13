@@ -1,29 +1,29 @@
 main {
-    display: flex;
-    justify-content: space-evenly;
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .player-game-board,
 .computer-game-board {
-    display: grid;
-    grid-template-columns: repeat(10, 50px);
-    grid-template-rows: repeat(10, 50px);
-    border: 2px solid black;
+	display: grid;
+	grid-template-columns: repeat(10, 50px);
+	grid-template-rows: repeat(10, 50px);
+	border: 2px solid black;
 
-    &>div {
-        background-color: lightblue;
-        border: 1px solid gray;
-    }
+	& > div {
+		background-color: lightblue;
+		border: 1px solid gray;
+	}
 
-    &>.ship {
-        background-color: lightgreen;
-    }
+	& > .ship {
+		background-color: lightgreen;
+	}
 
-    &>.hit {
-        background-color: red;
-    }
+	& > .hit {
+		background-color: red;
+	}
 
-    &>.miss {
-        background-color: lightyellow;
-    }
+	& > .miss {
+		background-color: lightyellow;
+	}
 }
